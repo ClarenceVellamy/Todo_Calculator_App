@@ -51,7 +51,7 @@ export default function Todo() {
         getList()
 
       } catch (error) {
-          console.log(error)
+          throw error
       }
   }
 
@@ -78,7 +78,7 @@ export default function Todo() {
 
     } catch (error) {
       setIsLoading(false)
-      console.log(error)
+      throw error
     }
   }
 
@@ -93,7 +93,7 @@ export default function Todo() {
       const data = await API.delete(`/todo/${id}`)
       getList()
     } catch (error) {
-      console.log(error)
+      throw error
     }
   }
 
@@ -112,14 +112,13 @@ export default function Todo() {
   const loadList = async () => {
     try {
         const response = await API.get(`/todo/${idUpdate}`)
-        // setPreview(response.data.data)
 
         setneww({
           task: response.data.data.task
         })
 
     } catch (error) {
-        console.log(error)
+        throw error
     }
 }
 
@@ -143,7 +142,7 @@ export default function Todo() {
       getList()
 
     } catch (error) {
-      console.log(error)
+      throw error
     }
   }
 
@@ -169,7 +168,7 @@ export default function Todo() {
         getList()
 
     } catch (error) {
-        console.log(error)
+        throw error
     }
 }
 
